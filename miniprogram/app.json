@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/article/article",
+    "pages/article/articleRead/articleRead",
+    "pages/article/articleAdd/articleAdd",
+    "pages/manage/manage"
+  ],
+
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "jeeWeApp",
+    "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+    "color": "#2b2b2b",
+    "backgroundColor": "#F6F6F6",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon/home.png",
+        "selectedIconPath": "images/icon/home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/article/article",
+        "iconPath": "images/icon/article.png",
+        "selectedIconPath": "images/icon/article.png",
+        "text": "文章"
+      },
+      {
+        "pagePath": "pages/manage/manage",
+        "iconPath": "images/icon/manage.png",
+        "selectedIconPath": "images/icon/manage.png",
+        "text": "管理"
+      }
+    ]
+  },
+
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

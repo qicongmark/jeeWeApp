@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class="banner" 
+    indicator-dots="true" 
+    autoplay="true" 
+    circular="true" 
+    indicator-color="#fff" 
+    indicator-active-color="#42c642">
+
+    <swiper-item wx:for="{{banners}}">
+      <navigator url="{{item.link}}">
+      <image src="{{item.cover}}" mode="aspectFill"></image>
+      </navigator>
+    </swiper-item>
+
+  </swiper>
+
+  <!-- 菜单导航 -->
+  <view class="category">
+    <view class="c-item" wx:for="{{category}}">
+      <navigator url="{{item.path}}?code={{item.code}}&name={{item.name}}">
+      <image src="../../images/{{item.image}}" mode="aspectFill"></image>
+      <view class="c-name">{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+
+  
+</view>

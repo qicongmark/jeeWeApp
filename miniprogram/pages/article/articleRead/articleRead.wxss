@@ -1,0 +1,12 @@
+/* pages/articleRead/articleRead.wxss */
+.container{
+  text-align: center;
+  padding:0rpx 60rpx;
+}
+.article-brief{
+  margin:30rpx 0rpx;
+  color: #8c8c8c;
+}
+.article-content{
+  text-align: left;
+}

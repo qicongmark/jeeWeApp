@@ -1,4 +1,3 @@
-
 const app = getApp()
 const CloudRequest = require('../../util/CloudRquest.js')
 const db = wx.cloud.database()
@@ -11,6 +10,11 @@ Page({
 
   onLoad: function (e) {
 
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
+
     //加载云数据库中的数据
     db.collection("article").orderBy("time", "desc").get({
       success: res => {
@@ -19,7 +23,7 @@ Page({
         })
       }
     })
-
+    
   },
 
   //删除博客
@@ -33,7 +37,6 @@ Page({
         id: id
       },
       success: res => {
-        console.log(res);
         wx.showToast({
           title: '删除成功',
         })

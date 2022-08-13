@@ -1,7 +1,7 @@
 
 ## jeeWeApp
 
-项目名jee，源自于网站 https://jeeweixin.com ，WeApp，表示微信小程序。
+项目名 jee，源自于网站 https://jeeweixin.com ；WeApp，表示微信小程序。
 
 这是一个云开发小程序的源码。
 
@@ -10,7 +10,7 @@
 
 ### 使用方法
 
-- 1、开发者已经注册了正式版小程序。注册网址 https://mp.weixin.qq.com，并到后台拿到 `appid`
+- 1、开发者已经注册了正式版小程序。注册网址 https://mp.weixin.qq.com。 并到后台拿到 `appid`
 
 - 2、小程序开发工具导入此源码，导入的时候，修改 `appid`
 

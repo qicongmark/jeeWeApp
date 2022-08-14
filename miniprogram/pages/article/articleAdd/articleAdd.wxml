@@ -1,20 +1,10 @@
 
 <view class="container">
   <form bindsubmit="submitArticle">
+    
     <view class="form-group">
-      <label class="form-label">头像</label>
-      <input value="{{userInfo.avatar}}" name="avatar" class="form-control" placeholder="请输入头像"/>
-      <button type="primary" bindtap="onGetUserProfile" style="width:100rpx;padding:0rpx;margin:0rpx;">授权</button>
-    </view>
-
-    <view class="form-group">
-      <label class="form-label">昵称</label>
-      <input value="{{userInfo.name}}" name="name" class="form-control" placeholder="请输入昵称"/>
-    </view>
-
-    <view class="form-group">
-      <label class="form-label">简介</label>
-      <textarea name="brief" class="form-control" style="height: 150rpx;" placeholder="请输入简介"></textarea>
+      <label class="form-label">标题</label>
+      <input name="title" class="form-control" placeholder="请输入标题"/>
     </view>
 
     <view class="form-group form-column">
@@ -33,14 +23,12 @@
     </view>
 
     <view class="form-group">
-      <label class="form-label">图片</label>
-      <image bindtap="removeArticleImage" wx:if="{{articleImg}}" src="{{articleImg}}" mode="widthFix"></image>
       <image bindtap="chooseArticleImage" mode="widthFix" class="form-img" src="../../../images/icon/img.png"></image>
+      <image bindtap="removeArticleImage" wx:if="{{articleImg}}" src="{{articleImg}}" mode="widthFix" style="width: 100%;"></image>
     </view>
 
     <view style="margin-top:30rpx;margin-bottom:60rpx;">
       <button type="primary" form-type="submit">保存</button>
-      
     </view>
     
   </form>

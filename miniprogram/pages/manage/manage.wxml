@@ -1,2 +1,2 @@
 <!--pages/manage/manage.wxml-->
-<text>pages/manage/manage.wxml</text>
+<button type="primary" bindtap="addArticle">添加文章</button>

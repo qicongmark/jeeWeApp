@@ -15,11 +15,12 @@
       </button>
     </view>
 
+    <!--
     <view class="article-comment">
       <image class="avatar" src="{{item.avatar}}"></image>
       <image class="avatar" src="{{item.avatar}}"></image>
       <image class="avatar" src="{{item.avatar}}"></image>
-    </view>
+    </view>-->
 
   </view>
 

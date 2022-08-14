@@ -1,36 +1,26 @@
 <!--index.wxml-->
+<wxs module="DateFormat" src="../../wxs/DateFormat.wxs"></wxs>
+
 <view class="container">
-  
+
   <!-- 文章展示 -->
-  <view class="article-block">
-    <block wx:for="{{articles}}">
-    <navigator url="/pages/article/articleRead/articleRead?id={{item._id}}">
-      <view class="article-card">
-        <view class="article-user">
-          <image class="avatar" src="{{item.avatar}}"></image>
-          <view class="username">{{item.name}}</view>
-          <button bindtap="removearticle" data-id="{{item._id}}" style="width:64rpx;padding:0rpx;margin:0rpx;">
-            <image class="icon-share" src="../../images/icon/delete.png"></image>
-          </button>
-          <button open-type="share" style="width:64rpx;padding:0rpx;margin:0rpx;">
-            <image class="icon-share" src="../../images/icon/share.png"></image>
-          </button>
-        </view>
-        <view class="article-item">
-          <view class="article">
-            <text class="article-text">{{item.brief}}</text>
-          </view>
-          <view wx:if="{{item.img}}" class="image-block">
-            <image src="{{item.img}}" mode="widthFix"></image>
-          </view>
-        </view>
-      </view>
-    </navigator>
-    </block>
+  <view wx:for="{{articles}}" class="article">
+    <view class="title">{{item.title}}</view>
+    <image class="article-img" wx:if="{{item.img}}" src="{{item.img}}" mode="widthFix"></image>
+
+    <view class="article-footer">
+      <view class="time">{{DateFormat.formatTime(item.time)}}</view>
+      <button class="share-btn" open-type="share" style="width: auto;height:auto;">
+        <image class="icon-share" mode="aspectFit" src="../../images/icon/wechat.png"></image>分享
+      </button>
+    </view>
+
+    <view class="article-comment">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <image class="avatar" src="{{item.avatar}}"></image>
+    </view>
+
   </view>
 
-
-  <navigator url="/pages/article/articleAdd/articleAdd">添加</navigator>
-  
 </view>
-

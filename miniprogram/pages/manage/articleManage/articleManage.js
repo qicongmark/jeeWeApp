@@ -1,4 +1,4 @@
-// pages/manage/manage.js
+// pages/manage/articleManage/articleManage.js
 Page({
 
   /**
@@ -15,25 +15,11 @@ Page({
 
   },
 
-  //管理文章
-  manageArticle: function(e){
-    wx.navigateTo({
-      url: '/pages/manage/articleManage/articleManage',
-    })
-  },
-
-  //管理分类
-  manageCategory: function(e){
-    wx.navigateTo({
-      url: '/pages/manage/categoryManage/categoryManage',
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

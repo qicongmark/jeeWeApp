@@ -1,1 +1,6 @@
 /* pages/manage/manage.wxss */
+
+button{
+  margin-top: 30rpx;
+}
+

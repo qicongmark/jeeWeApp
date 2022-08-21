@@ -1,2 +1,5 @@
 <!--pages/manage/manage.wxml-->
-<button type="primary" bindtap="addArticle">添加文章</button>
+
+<button type="primary" bindtap="manageCategory">分类管理</button>
+
+<button type="primary" bindtap="manageArticle">文章管理</button>

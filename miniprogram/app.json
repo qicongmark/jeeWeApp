@@ -3,10 +3,11 @@
     "pages/index/index",
     "pages/article/article",
     "pages/article/articleRead/articleRead",
-    "pages/article/articleAdd/articleAdd",
-    "pages/manage/manage"
+    "pages/manage/manage",
+    "pages/manage/categoryManage/categoryManage",
+    "pages/manage/articleManage/articleManage",
+    "pages/manage/articleAdd/articleAdd"
   ],
-
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
@@ -14,7 +15,6 @@
     "navigationBarTitleText": "jeeWeApp",
     "navigationBarTextStyle": "black"
   },
-
   "tabBar": {
     "color": "#2b2b2b",
     "backgroundColor": "#F6F6F6",
@@ -36,11 +36,10 @@
         "pagePath": "pages/manage/manage",
         "iconPath": "images/icon/manage.png",
         "selectedIconPath": "images/icon/manage.png",
-        "text": "我的"
+        "text": "管理"
       }
     ]
   },
-
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

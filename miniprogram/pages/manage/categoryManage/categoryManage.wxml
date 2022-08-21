@@ -1,0 +1,10 @@
+
+<view class="container">
+
+  <topnav active="category"></topnav>
+
+  <view class="list">
+    
+  </view>
+
+</view>

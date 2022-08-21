@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "文章管理",
+  "usingComponents": {
+    "topnav": "/components/topnav/topnav"
+  }
+}

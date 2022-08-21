@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "分类管理",
+  "usingComponents": {
+    "topnav": "/components/topnav/topnav"
+  }
+}

@@ -1,4 +1,3 @@
-
 const db = wx.cloud.database()
 
 Page({
@@ -7,61 +6,80 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{
-      avatar:"../../images/icon/20.png",
-      name:""
+    userInfo: {
+      avatar: "../../images/icon/20.png",
+      name: ""
     }
   },
 
   //授权获取用户信息
-  onGetUserProfile:function(e){
+  onGetUserProfile: function (e) {
     wx.getUserProfile({
       desc: '请授权头像和昵称的信息',
-      success:res=>{
+      success: res => {
         //console.log(res);
         let userInfo = this.data.userInfo
         userInfo.avatar = res.userInfo.avatarUrl
         userInfo.name = res.userInfo.nickName
         this.setData({
-          userInfo:userInfo
+          userInfo: userInfo
+        })
+      }
+    })
+  },
+
+  insertImage: function (e) {
+    const that = this
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        that.editorContext.insertImage({
+          src: res.tempFilePaths[0], //可以换成云函数的 fileid
+          data: {
+            id: 'abcd'
+          },
+          width: '100%',
+          success: function () {
+            console.log('insert image success')
+          }
         })
       }
     })
   },
 
   //form表单提交
-  submitArticle:function(e){
+  submitArticle: function (e) {
 
     let article = e.detail.value
-    
+
     //先做一些校验，再发起提交
     //todo
 
     wx.showLoading({
-      title:"数据加载中..."
+      title: "数据加载中..."
     })
 
     //获取富文本编辑器里的内容
     this.editorContext.getContents({
-      success:res=>{
+      success: res => {
         article.content = res.html
-        
+
         //上传图片
-        if(this.data.articleImg){
+        if (this.data.articleImg) {
           let articleImg = this.data.articleImg
           let filename = articleImg.substring(articleImg.lastIndexOf("."))
           filename = new Date().getTime() + filename
-          
+
           wx.cloud.uploadFile({
-            cloudPath:filename,
-            filePath:this.data.articleImg,
-            success:res=>{
+            cloudPath: filename,
+            filePath: this.data.articleImg,
+            success: res => {
               article.img = res.fileID
               this.createCloudArticle(article)
             },
-            fail:console.error
+            fail: console.error
           })
-        }else{
+        } else {
           //创建到云数据库
           this.createCloudArticle(article)
         }
@@ -74,74 +92,77 @@ Page({
   },
 
   //创建博客到云数据库
-  createCloudArticle: function(article){
+  createCloudArticle: function (article) {
     article.time = new Date().getTime()
-    
+
     //添加博客到云平台数据库中
     wx.cloud.callFunction({
-      name:"articleFunctions",
-      data:{
-        type:"addArticle",
-        article:article
+      name: "articleFunctions",
+      data: {
+        type: "addArticle",
+        article: article
       },
-      success:res=>{
+      success: res => {
         wx.showToast({
           title: '添加成功',
         })
         console.log(res);
       },
-      fail:res=>{
+      fail: res => {
         console.log(res)
-      }, 
-      complete:res=>{
-        wx.hideLoading()//不严谨
+      },
+      complete: res => {
+        wx.hideLoading() //不严谨
       }
     })
 
   },
 
   //富文本编辑器准备好了
-  onEditorReady:function(e){
-    wx.createSelectorQuery().select("#contentEditor").context(res=>{
+  onEditorReady: function (e) {
+    wx.createSelectorQuery().select("#contentEditor").context(res => {
       this.editorContext = res.context
     }).exec()
   },
 
   //富文本处理
-  format: function(e) {
-    let { name, value } = e.target.dataset
+  format: function (e) {
+    let {
+      name,
+      value
+    } = e.target.dataset
     if (!name) return
     this.editorContext.format(name, value)
   },
 
   //选择本地图片
-  chooseArticleImage:function(e){
+  chooseArticleImage: function (e) {
     wx.chooseImage({
       count: 1,
-      sourceType: ['album','camera'],
-      success:res=>{
+      sourceType: ['album', 'camera'],
+      success: res => {
         this.setData({
-          articleImg:res.tempFilePaths[0]
+          articleImg: res.tempFilePaths[0]
         })
       }
     })
   },
 
   //移除图片
-  removeArticleImage:function(e){
+  removeArticleImage: function (e) {
     this.setData({
-      articleImg:null
+      articleImg: null
     })
   },
 
   //测试云函数的调用
-  testArticleFunctions:function(e){
+  testArticleFunctions: function (e) {
     wx.cloud.callFunction({
-      name:"articleFunctions",
-      data:{
-        type:"addArticle"
+      name: "articleFunctions",
+      data: {
+        type: "addArticle"
       },
-      success:res=>{
+      success: res => {
         console.log(res);
       }
     })

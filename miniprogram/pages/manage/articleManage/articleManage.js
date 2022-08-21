@@ -1,4 +1,6 @@
 // pages/manage/articleManage/articleManage.js
+const db = wx.cloud.database()
+
 Page({
 
   /**
@@ -12,7 +14,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //加载云数据库中的数据
+    wx.showLoading()
+    db.collection("article").orderBy("time", "desc").get({
+      success: res => {
+        this.setData({
+          articles: res.data
+        })
+      },
+      complete: res => wx.hideLoading()
+    })
+  },
 
+  //添加文章
+  addArticle:function(e){
+    wx.navigateTo({
+      url: '/pages/manage/articleAdd/articleAdd',
+    })
   },
 
   /**

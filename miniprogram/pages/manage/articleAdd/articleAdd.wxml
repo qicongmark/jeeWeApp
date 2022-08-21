@@ -1,7 +1,5 @@
-
 <view class="container">
-  <form bindsubmit="submitArticle">
-    
+  <form class="jeeform" bindsubmit="submitArticle">
     <view class="form-group">
       <label class="form-label">标题</label>
       <input name="title" class="form-control" placeholder="请输入标题"/>
@@ -9,7 +7,7 @@
 
     <view class="form-group form-column">
       <label class="form-label">内容</label>
-      <editor id="contentEditor" bindready="onEditorReady" class="form-editor"></editor>
+      <editor id="contentEditor" bindready="onEditorReady" class="form-editor" placeholder="请输入内容"></editor>
       <view class="toolbar" catchtouchend="format">
         <i class="iconfont icon-charutupian" catchtouchend="insertImage"></i>
         <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
@@ -22,8 +20,18 @@
     </view>
 
     <view class="form-group">
+      <label class="form-label">分类</label>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">封面</label>
       <image bindtap="chooseArticleImage" mode="widthFix" class="form-img" src="../../../images/icon/img.png"></image>
       <image bindtap="removeArticleImage" wx:if="{{articleImg}}" src="{{articleImg}}" mode="widthFix" style="width: 100%;"></image>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">状态</label>
+      <picker></picker>
     </view>
 
     <view style="margin-top:30rpx;margin-bottom:60rpx;">

@@ -2,13 +2,14 @@
 .topnav{
   background: #fff;
   display: flex;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 70rpx;
+  line-height: 70rpx;
   justify-content: space-around;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 99;
 }
 .topnav-item{
   flex: 1;
@@ -18,6 +19,6 @@
 .topnav-active{
   background: #2aa515;
   color: #FFF;
-  height: 80rpx;
+  height: 70rpx;
 }
 

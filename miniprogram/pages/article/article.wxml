@@ -10,8 +10,8 @@
 
     <view class="article-footer">
       <view class="time">{{DateFormat.formatTime(item.time)}}</view>
-      <button class="share-btn" open-type="share" style="width: auto;height:auto;">
-        <image class="icon-share" mode="aspectFit" src="../../images/icon/wechat.png"></image>分享
+      <button class="icon-btn" open-type="share" style="width: auto;height:auto;">
+        <image class="icon" mode="aspectFit" src="../../images/icon/wechat.png"></image>分享
       </button>
     </view>
 

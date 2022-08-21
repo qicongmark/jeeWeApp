@@ -39,11 +39,14 @@ button::after {
 }
 
 /**form**/
-.ux-form {
+.jeeform {
   width: 100%;
   background-color: #FFF;
 }
-
+.form-split {
+  width: 100%;
+  border-bottom: 1px solid #ECECEC;
+}
 .form-group {
   padding: 30rpx 0rpx 10px 0px;
   display: flex;
@@ -127,15 +130,72 @@ textarea{
 /**
 * icon
 **/
-.icon-share{
-  width:48rpx;
-  height:48rpx;
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-weight: normal;
+  padding: 6rpx 12rpx;
+  border: 1px solid #22C704;
+  color: #22C704;
+  font-size:medium;
 }
 
-.share-btn-block {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  margin-top: 60px;
-  margin-bottom: 60px;
+.icon-btn .icon{
+  width:36rpx;
+  height:36rpx;
+  margin-top: -2rpx;
+  margin-right: 3rpx;
 }
+
+.jeecard {
+  flex: 1;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.jeecard .title{
+  width: 100%;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 15rpx;
+}
+
+.jeecard-opt{
+  margin-top: 30rpx;
+  width: 100%;
+  border-top: 1px solid #f6f6f6;
+  padding-top: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.jeecard-opt button{
+  border: none;
+  background-color: #f6f6f6;
+}
+
+/**
+管理
+*/
+.mng-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:80rpx;
+  padding: 15px;
+}
+
+.mng-header .title{
+  flex: 1;
+  font-weight: bolder;
+}
+

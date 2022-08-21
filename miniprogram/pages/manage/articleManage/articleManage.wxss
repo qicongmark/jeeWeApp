@@ -1,51 +1,9 @@
-.list{
-  padding-top: 100rpx;
-  background: #f6f6f6;
+.container{
+  padding: 0px;
 }
-.item{
-  background: #fff;
-  margin-bottom: 20rpx;
+
+
+.icon-btn text{
+  color: #2b2b2b;
 }
-.item .title{
-  border-bottom: 2rpx solid #eee;
-  height: 70rpx;
-  line-height: 80rpx;
-  font-size: 26rpx;
-  color: #999;
-  padding: 0 24rpx;
-  overflow: hidden;
-}
-.item .price{
-  color: #bf0008;
-}
-.pro{
-  display: flex;
-  padding: 24rpx;
-  padding-left: 0;
-  margin-left: 24rpx;
-  border-bottom: 2rpx solid #eee; 
-}
-.pro:last-child{
-  border: none;
-}
-.pro image{
-  width: 120rpx;
-  height: 120rpx;
-  padding-right: 24rpx;
-}
-.pro .pro-r{
-  width: 500rpx;
-}
-.pro-r .name{
-  font-size: 30rpx;
-  color: #282828;
-  height: 80rpx;
-  line-height: 40rpx;
-  overflow: hidden;
-}
-.pro-r .count{
-  text-align: right;
-  font-size: 24rpx;
-  color: #999;
-  line-height: 40rpx;
-}
+

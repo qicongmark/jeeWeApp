@@ -18,15 +18,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "",
-          "pathName": "pages/article/article",
+          "name": "articleAdd",
+          "pathName": "pages/article/articleAdd/articleAdd",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "articleAdd",
-          "pathName": "pages/article/articleAdd/articleAdd",
+          "name": "articleManage",
+          "pathName": "pages/manage/articleManage/articleManage",
           "query": "",
           "scene": null,
           "launchMode": "default"

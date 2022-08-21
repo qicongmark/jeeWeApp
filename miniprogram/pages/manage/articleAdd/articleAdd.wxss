@@ -2,6 +2,10 @@
 /* pages/blogAdd/blogAdd.wxss */
 @import "./assets/iconfont.wxss";
 
+.container{
+  background-color: #FFF;
+}
+
 .toolbar {
   box-sizing: border-box;
   padding: 0 10px;

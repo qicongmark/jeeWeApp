@@ -15,7 +15,7 @@ Page({
   onLoad(options) {
     db.collection("article").doc(options.id).get({
       success:res=>{
-        console.log(res)
+        // console.log(res)
         this.setData({
           article: res.data
         })

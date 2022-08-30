@@ -27,10 +27,49 @@ Page({
   },
 
   //添加文章
-  addArticle:function(e){
+  addArticle: function (e) {
     wx.navigateTo({
       url: '/pages/manage/articleAdd/articleAdd',
     })
+  },
+
+  //删除文章
+  deleteArticle: function (e) {
+    let id = e.currentTarget.dataset.id
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: res => {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '删除中...',
+          })
+          wx.cloud.callFunction({
+            name: "articleFunctions",
+            data: {
+              type: "deleteArticle",
+              id: id
+            },
+            success: res => {
+              let articles = this.data.articles
+              for (let i in articles) {
+                if (articles[i]._id == id) {
+                  articles.splice(i, 1)
+                  break;
+                }
+              }
+              this.setData({
+                articles: articles
+              })
+            },
+            complete:res=>{
+              wx.hideLoading()
+            }
+          })
+        }
+      }
+    })
+
   },
 
   /**

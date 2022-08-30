@@ -2,6 +2,9 @@
 page {
   background: #f6f6f6;
 }
+navigator{
+  width: 100%;
+}
 
 .container{
   padding: 15px;

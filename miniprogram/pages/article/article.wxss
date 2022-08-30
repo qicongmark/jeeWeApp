@@ -1,12 +1,15 @@
 
+.article-card{
+  margin-bottom: 30rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  padding: 20rpx;
+}
 .article {
   flex: 1;
 	display: flex;
 	flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  border-radius: 15rpx;
-  padding: 20rpx;
 }
 
 .article .title{

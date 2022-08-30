@@ -33,6 +33,14 @@ Page({
     })
   },
 
+  //修改文章
+  editArticle: function(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/manage/articleEdit/articleEdit?id='+id,
+    })
+  },
+
   //删除文章
   deleteArticle: function (e) {
     let id = e.currentTarget.dataset.id

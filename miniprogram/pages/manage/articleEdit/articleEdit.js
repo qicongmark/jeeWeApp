@@ -6,26 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {
-      avatar: "../../images/icon/20.png",
-      name: ""
-    }
+    
   },
 
-  //授权获取用户信息
-  onGetUserProfile: function (e) {
-    wx.getUserProfile({
-      desc: '请授权头像和昵称的信息',
-      success: res => {
-        //console.log(res);
-        let userInfo = this.data.userInfo
-        userInfo.avatar = res.userInfo.avatarUrl
-        userInfo.name = res.userInfo.nickName
+  onLoad: function(options){
+    db.collection("article").doc(options.id).get({
+      success:res=>{
+        let article = res.data
         this.setData({
-          userInfo: userInfo
+          article: article,
+          articleImg: article.img
         })
+        this.editorContext.setContents({html:article.content})
       }
     })
+  },
+
+  //富文本编辑器准备好了
+  onEditorReady: function (e) {
+    wx.createSelectorQuery().select("#contentEditor").context(res => {
+      this.editorContext = res.context
+    }).exec()
   },
 
   insertImage: function (e) {
@@ -47,7 +48,6 @@ Page({
           filePath: res.tempFilePaths[0],
           cloudPath: filename,
           success: cloudRes => {
-            
             that.editorContext.insertImage({
               src: cloudRes.fileID, //可以换成云函数的 fileid
               data: {
@@ -55,7 +55,6 @@ Page({
               },
               width: '100%'
             })
-
           },
           fail: console.error,
           complete: res=>{
@@ -104,6 +103,9 @@ Page({
           this.createCloudArticle(article)
         }
 
+        // this.setData({
+        //   article:article
+        // })
       }
     })
   },
@@ -123,6 +125,7 @@ Page({
         wx.showToast({
           title: '添加成功',
         })
+        console.log(res);
       },
       fail: res => {
         console.log(res)
@@ -132,13 +135,6 @@ Page({
       }
     })
 
-  },
-
-  //富文本编辑器准备好了
-  onEditorReady: function (e) {
-    wx.createSelectorQuery().select("#contentEditor").context(res => {
-      this.editorContext = res.context
-    }).exec()
   },
 
   //富文本处理
@@ -170,7 +166,8 @@ Page({
       articleImg: null
     })
   },
-  
+
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

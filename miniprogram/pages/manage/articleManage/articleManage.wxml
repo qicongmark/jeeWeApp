@@ -15,7 +15,7 @@
     </navigator>
     
     <view class="jeecard-opt">
-      <button class="icon-btn" type="default" style="width: auto;height:auto;">
+      <button data-id="{{item._id}}" bindtap="editArticle"  class="icon-btn" type="default" style="width: auto;height:auto;">
         <image class="icon" src="/images/icon/edit.png"></image><text>修改</text>
       </button>
       

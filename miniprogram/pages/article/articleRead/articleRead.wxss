@@ -1,12 +1,14 @@
-/* pages/articleRead/articleRead.wxss */
-.container{
+.article-title{
+  margin-top: 15rpx;
+  color: #2b2b2b;
   text-align: center;
-  padding:0rpx 60rpx;
+  width: 100%;
+  font-weight: bold;
 }
-.article-brief{
-  margin:30rpx 0rpx;
-  color: #8c8c8c;
+.article-img{
+  width: 100%;
 }
 .article-content{
+  margin: 30rpx 0rpx;
   text-align: left;
 }

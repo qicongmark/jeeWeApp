@@ -10,14 +10,16 @@
   </view>
 
   <view wx:for="{{articles}}" class="jeecard">
-    <view class="title">{{item.title}}</view>
+    <navigator url="/pages/article/articleRead/articleRead?id={{item._id}}">
+      <view class="title">{{item.title}}</view>
+    </navigator>
     
     <view class="jeecard-opt">
-      <button class="icon-btn" type="default" style="width: auto;height:auto;">
+      <button data-id="{{item._id}}" bindtap="editArticle"  class="icon-btn" type="default" style="width: auto;height:auto;">
         <image class="icon" src="/images/icon/edit.png"></image><text>修改</text>
       </button>
       
-      <button class="icon-btn" type="default" style="width: auto;height:auto;">
+      <button data-id="{{item._id}}" bindtap="deleteArticle" class="icon-btn" type="default" style="width: auto;height:auto;">
         <image class="icon" src="/images/icon/delete.png"></image><text>删除</text>
       </button>
     </view>

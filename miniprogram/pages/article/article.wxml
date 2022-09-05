@@ -4,9 +4,11 @@
 <view class="container">
 
   <!-- 文章展示 -->
-  <view wx:for="{{articles}}" class="article">
-    <view class="title">{{item.title}}</view>
-    <image class="article-img" wx:if="{{item.img}}" src="{{item.img}}" mode="widthFix"></image>
+  <view wx:for="{{articles}}" class="article-card">
+    <navigator url="/pages/article/articleRead/articleRead?id={{item._id}}" class="article">
+      <view class="title">{{item.title}}</view>
+      <image class="article-img" wx:if="{{item.img}}" src="{{item.img}}" mode="widthFix"></image>
+    </navigator>
 
     <view class="article-footer">
       <view class="time">{{DateFormat.formatTime(item.time)}}</view>

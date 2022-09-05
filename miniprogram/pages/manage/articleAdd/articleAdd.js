@@ -33,14 +33,33 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
-        that.editorContext.insertImage({
-          src: res.tempFilePaths[0], //可以换成云函数的 fileid
-          data: {
-            id: 'abcd'
+
+        //上传到云平台
+        let imgFile = res.tempFilePaths[0]
+        let filename = imgFile.substring(imgFile.lastIndexOf("."));
+        filename = new Date().getTime() + filename
+
+        wx.showLoading({
+          title: '图片上传中',
+        })
+
+        wx.cloud.uploadFile({
+          filePath: res.tempFilePaths[0],
+          cloudPath: filename,
+          success: cloudRes => {
+            
+            that.editorContext.insertImage({
+              src: cloudRes.fileID, //可以换成云函数的 fileid
+              data: {
+                id: filename
+              },
+              width: '100%'
+            })
+
           },
-          width: '100%',
-          success: function () {
-            console.log('insert image success')
+          fail: console.error,
+          complete: res=>{
+            wx.hideLoading();
           }
         })
       }
@@ -79,14 +98,12 @@ Page({
             },
             fail: console.error
           })
+
         } else {
           //创建到云数据库
           this.createCloudArticle(article)
         }
 
-        // this.setData({
-        //   article:article
-        // })
       }
     })
   },
@@ -106,7 +123,6 @@ Page({
         wx.showToast({
           title: '添加成功',
         })
-        console.log(res);
       },
       fail: res => {
         console.log(res)
@@ -154,20 +170,7 @@ Page({
       articleImg: null
     })
   },
-
-  //测试云函数的调用
-  testArticleFunctions: function (e) {
-    wx.cloud.callFunction({
-      name: "articleFunctions",
-      data: {
-        type: "addArticle"
-      },
-      success: res => {
-        console.log(res);
-      }
-    })
-  },
-
+  
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

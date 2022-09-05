@@ -7,7 +7,7 @@ exports.main = async (event, context) => {
   switch (event.type) {
     case 'addArticle':
       return await addArticle.main(event, context);
-    case 'removeArticle':
+    case 'deleteArticle':
       return await deleteArticle.main(event, context);
        
   }

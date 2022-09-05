@@ -1,10 +1,10 @@
 <view class="container">
 
-  <image src="{{article.img}}" mode="widthFix"></image>
-
-  <view class="article-brief">
-    <text>{{article.brief}}</text>
+  <view class="article-title">
+    <text>{{article.title}}</text>
   </view>
+
+  <image class="article-img" src="{{article.img}}" mode="aspectFit"></image>
 
   <view class="article-content">
     <rich-text nodes="{{article.content}}"></rich-text>

@@ -39,7 +39,7 @@
     "useCompilerPlugins": false,
     "ignoreUploadUnusedFiles": true
   },
-  "appid": "wx2dd33df71436fcad",
+  "appid": "wx5bc743c1ba6135ed",
   "projectname": "jeeWeApp",
   "libVersion": "2.21.0",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",

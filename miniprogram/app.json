@@ -28,16 +28,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/article/article",
-        "iconPath": "images/icon/article.png",
-        "selectedIconPath": "images/icon/article.png",
-        "text": "文章"
-      },
-      {
         "pagePath": "pages/manage/manage",
-        "iconPath": "images/icon/manage.png",
-        "selectedIconPath": "images/icon/manage.png",
-        "text": "管理"
+        "iconPath": "images/icon/user.png",
+        "selectedIconPath": "images/icon/user-select.png",
+        "text": "我的"
       }
     ]
   },

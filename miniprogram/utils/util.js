@@ -84,7 +84,7 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-//获取随机数
+//获取随机数 闭区间 [Min,Max]
 function rand(Min, Max) {
   var Range = Max - Min;
   var Rand = Math.random();
@@ -92,7 +92,6 @@ function rand(Min, Max) {
 }
 
 //return "联系微信：qicong88，咨询服务";
-
 function getRandom(min, max, count) {
   var originalArray = new Array
   var returnArr = new Array;
@@ -119,6 +118,15 @@ function isEmpty(text) {
     }
   }
   return false;
+}
+
+function contain(array,tmp){
+  for(let item of array){
+    if(item == tmp){
+      return true
+    }
+  }
+  return false
 }
 
 function formatBrTag(item) {
@@ -178,5 +186,6 @@ module.exports = {
   rand: rand,
   getRandom: getRandom,
   isEmpty: isEmpty,
+  contain: contain,
   openPdf: openPdf
 }

@@ -5,6 +5,11 @@
       <input name="title" class="form-control" value="{{article.title}}"/>
     </view>
 
+    <view class="form-group">
+      <label class="form-label">简介</label>
+      <textarea name="desc" class="form-textarea" value="{{article.desc}}" maxlength="80"></textarea>
+    </view>
+
     <view class="form-group form-column">
       <label class="form-label">内容</label>
       <editor id="contentEditor" bindready="onEditorReady" class="form-editor" value="{{article.content}}"></editor>
@@ -13,29 +18,72 @@
         <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
         <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
         <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
-        <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
         <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
         <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
       </view>
     </view>
 
     <view class="form-group">
-      <label class="form-label">分类</label>
+      <label class="form-label">原文链接</label>
+      <input name="link" value="{{article.link}}" class="form-control" placeholder="请输入"/>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">下载地址</label>
+      <input name="download" value="{{article.download}}" class="form-control" placeholder="请输入"/>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">PDF地址</label>
+      <input name="pdf" value="{{article.pdf}}" class="form-control" placeholder="请输入"/>
     </view>
 
     <view class="form-group">
       <label class="form-label">封面</label>
-      <image bindtap="chooseArticleImage" mode="widthFix" class="form-img" src="../../../images/icon/img.png"></image>
-      <image bindtap="removeArticleImage" wx:if="{{articleImg}}" src="{{articleImg}}" mode="widthFix" style="width: 100%;"></image>
+      <image bindtap="chooseArticleImage" mode="widthFix" class="form-img" src="../../../images/icon/add.png"></image>
+      <image bindtap="removeArticleImage" wx:if="{{articleImg}}" src="{{articleImg}}" mode="widthFix" style="width: 100%;margin-top:15rpx;"></image>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">分类</label>
+      <picker class="form-control" bindchange="changeCategory" value="{{index}}" range="{{categoryArray}}" range-key="name">
+        <label>{{categoryName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">二级分类</label>
+      <picker class="form-control" bindchange="changeSubCategory" value="{{index}}" range="{{subCategoryArray}}" range-key="name">
+        <label>{{subCategoryName}}</label>
+      </picker>
     </view>
 
     <view class="form-group">
       <label class="form-label">状态</label>
-      <picker></picker>
+      <picker class="form-control" bindchange="changeStatus" value="{{index}}" range="{{statusArray}}" range-key="name">
+        <label>{{statusName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">是否推荐</label>
+      <picker class="form-control" bindchange="changeRecommend" value="{{index}}" range="{{recommendArray}}" range-key="name">
+        <label>{{recommendName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">视频号ID</label>
+      <input name="finderUserName" value="{{article.finderUserName}}" class="form-control" placeholder="请输入"/>
+    </view>
+    
+    <view class="form-group">
+      <label class="form-label">视频ID</label>
+      <input name="videoId" value="{{article.videoId}}" class="form-control" placeholder="请输入"/>
     </view>
 
     <view style="margin-top:30rpx;margin-bottom:60rpx;">
-      <button type="primary" form-type="submit">保存</button>
+      <button type="primary" form-type="submit">保 存</button>
     </view>
     
   </form>

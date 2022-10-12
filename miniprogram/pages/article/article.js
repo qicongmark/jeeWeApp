@@ -1,5 +1,5 @@
 const app = getApp()
-const CloudRequest = require('../../util/CloudRquest.js')
+const CloudRequest = require('../../utils/CloudRquest.js')
 const db = wx.cloud.database()
 
 Page({

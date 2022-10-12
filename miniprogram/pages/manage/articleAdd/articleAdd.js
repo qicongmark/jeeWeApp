@@ -1,11 +1,43 @@
 const db = wx.cloud.database()
+const app = getApp()
+let util = require("../../../utils/util.js")
 
 Page({
+
+  firstImage:null,
 
   /**
    * 页面的初始数据
    */
   data: {
+    categoryArray:[
+      {name:"编程资料",id:1},
+      {name:"源码下载",id:2},
+      {name:"推荐文章",id:3},
+      {name:"面试题库",id:4}
+    ],
+    category:1,
+    categoryName:"编程资料",
+
+    //二级分类
+    subCategoryArray:app.getSubCategory(),
+    subCategory:1,
+    subCategoryName:"Java",
+    
+    recommendArray:[
+      {name:"否",id:0},
+      {name:"是",id:1}
+    ],
+    recommend:0,
+    recommendName:"否",
+    
+    statusArray:[
+      {name:"发布",id:1},
+      {name:"置顶",id:2}
+    ],
+    status:1,
+    statusName:"发布",
+
     userInfo: {
       avatar: "../../images/icon/20.png",
       name: ""
@@ -28,6 +60,42 @@ Page({
     })
   },
 
+  //修改分类
+  changeCategory:function(e){
+    let item = this.data.categoryArray[e.detail.value];
+    this.setData({
+      category: item.id,
+      categoryName: item.name
+    })
+  },
+
+  //修改二级分类
+  changeSubCategory:function(e){
+    let item = this.data.subCategoryArray[e.detail.value];
+    this.setData({
+      subCategory: item.id,
+      subCategoryName: item.name
+    })
+  },
+
+  //修改状态
+  changeStatus:function(e){
+    let item = this.data.statusArray[e.detail.value];
+    this.setData({
+      status: item.id,
+      statusName: item.name
+    })
+  },
+
+  //是否推荐
+  changeRecommend:function(e){
+    let item = this.data.recommendArray[e.detail.value];
+    this.setData({
+      recommend: item.id,
+      recommendName: item.name
+    })
+  },
+
   insertImage: function (e) {
     const that = this
     wx.chooseImage({
@@ -47,9 +115,13 @@ Page({
           filePath: res.tempFilePaths[0],
           cloudPath: filename,
           success: cloudRes => {
-            
+            //第一个上传的图片
+            if(that.firstImage == null){
+              that.firstImage = cloudRes.fileID
+            }
+
             that.editorContext.insertImage({
-              src: cloudRes.fileID, //可以换成云函数的 fileid
+              src: cloudRes.fileID, 
               data: {
                 id: filename
               },
@@ -68,12 +140,17 @@ Page({
 
   //form表单提交
   submitArticle: function (e) {
-
     let article = e.detail.value
-
+    //console.log(article);
     //先做一些校验，再发起提交
-    //todo
+    if(util.isEmpty(article.title)){
+      wx.showToast({
+        title: '标题不能为空',
+      })
+      return
+    }
 
+    //提交数据
     wx.showLoading({
       title: "数据加载中..."
     })
@@ -100,6 +177,12 @@ Page({
           })
 
         } else {
+          //默认使用富文本内容的第一个图片
+          if(this.firstImage){
+            article.img = this.firstImage
+          }else{
+            article.img = ""
+          }
           //创建到云数据库
           this.createCloudArticle(article)
         }
@@ -111,6 +194,24 @@ Page({
   //创建博客到云数据库
   createCloudArticle: function (article) {
     article.time = new Date().getTime()
+    article.category = this.data.category
+    article.categoryName = this.data.categoryName
+    article.subCategory = this.data.subCategory
+    article.subCategoryName = this.data.subCategoryName
+    article.recommend = this.data.recommend
+    article.recommendName = this.data.recommendName
+    article.status = this.data.status
+    article.statusName = this.data.statusName
+    article.read = 105 + util.rand(10,50) //阅读量
+    article.like = 0 //喜欢量
+
+    article.title = article.title.trim()
+    article.desc = article.desc.trim()
+    article.link = article.link.trim()
+    article.download = article.download.trim()
+    article.pdf = article.pdf.trim()
+    article.finderUserName = article.finderUserName.trim()
+    article.videoId = article.videoId.trim()
 
     //添加博客到云平台数据库中
     wx.cloud.callFunction({

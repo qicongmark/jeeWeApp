@@ -21,6 +21,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "manage",
+          "pathName": "pages/manage/manage",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

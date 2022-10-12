@@ -1,6 +1,6 @@
 
 <view class="topnav">
-  <view bindtap="toNav" data-page="home" class="topnav-item" style="width:30px;">
+  <view bindtap="toNav" data-page="home" class="topnav-item" style="width:30px;flex:1;">
     <image src="/images/icon/home.png" style="width: 50rpx;height:50rpx;margin-top:16rpx;" mode="aspectFit"></image>
   </view>
   <view bindtap="toNav" data-page="article" class="topnav-item {{active == 'article'?'topnav-active':''}}">文章管理</view>

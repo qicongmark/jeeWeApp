@@ -1,8 +1,10 @@
 
 /* pages/blogAdd/blogAdd.wxss */
-@import "./assets/iconfont.wxss";
+@import "../assets/iconfont.wxss";
+@import "../manage.wxss";
 
 .container{
+  padding: 15rpx 30rpx;
   background-color: #FFF;
 }
 

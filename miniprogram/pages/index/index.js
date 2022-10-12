@@ -1,7 +1,7 @@
 // index.js
 // const app = getApp()
 const { envList } = require('../../envList.js');
-const CloudRequest = require('../../util/CloudRquest.js')
+const CloudRequest = require('../../utils/CloudRquest.js')
 const db = wx.cloud.database()
 
 Page({

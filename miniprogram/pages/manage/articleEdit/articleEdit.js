@@ -1,4 +1,6 @@
 const db = wx.cloud.database()
+const app = getApp()
+let util = require("../../../utils/util.js")
 
 Page({
 
@@ -6,16 +8,56 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    categoryArray:[
+      {name:"编程资料",id:1},
+      {name:"源码下载",id:2},
+      {name:"推荐文章",id:3},
+      {name:"面试题库",id:4}
+    ],
+    category:1,
+    categoryName:"编程资料",
+
+    //二级分类
+    subCategoryArray:app.getSubCategory(),
+    subCategory:1,
+    subCategoryName:"Java",
+    
+    recommendArray:[
+      {name:"否",id:0},
+      {name:"是",id:1}
+    ],
+    recommend:0,
+    recommendName:"否",
+    
+    statusArray:[
+      {name:"发布",id:1},
+      {name:"置顶",id:2}
+    ],
+    status:1,
+    statusName:"发布"
     
   },
 
   onLoad: function(options){
+    this.setData({
+      articleId:options.id
+    })
     db.collection("article").doc(options.id).get({
       success:res=>{
         let article = res.data
         this.setData({
           article: article,
-          articleImg: article.img
+          articleImg: article.img,
+
+          category:article.category,
+          categoryName:article.categoryName,
+          subCategory:article.subCategory,
+          subCategoryName:article.subCategoryName,
+          recommend:article.recommend,
+          recommendName:article.recommendName,
+          status:article.status,
+          statusName:article.statusName
         })
         this.editorContext.setContents({html:article.content})
       }
@@ -27,6 +69,42 @@ Page({
     wx.createSelectorQuery().select("#contentEditor").context(res => {
       this.editorContext = res.context
     }).exec()
+  },
+
+  //修改分类
+  changeCategory:function(e){
+    let item = this.data.categoryArray[e.detail.value];
+    this.setData({
+      category: item.id,
+      categoryName: item.name
+    })
+  },
+
+  //修改二级分类
+  changeSubCategory:function(e){
+    let item = this.data.subCategoryArray[e.detail.value];
+    this.setData({
+      subCategory: item.id,
+      subCategoryName: item.name
+    })
+  },
+
+  //修改状态
+  changeStatus:function(e){
+    let item = this.data.statusArray[e.detail.value];
+    this.setData({
+      status: item.id,
+      statusName: item.name
+    })
+  },
+
+  //是否推荐
+  changeRecommend:function(e){
+    let item = this.data.recommendArray[e.detail.value];
+    this.setData({
+      recommend: item.id,
+      recommendName: item.name
+    })
   },
 
   insertImage: function (e) {
@@ -67,14 +145,18 @@ Page({
 
   //form表单提交
   submitArticle: function (e) {
-
     let article = e.detail.value
 
     //先做一些校验，再发起提交
-    //todo
+    if(util.isEmpty(article.title)){
+      wx.showToast({
+        title: '标题不能为空',
+      })
+      return
+    }
 
     wx.showLoading({
-      title: "数据加载中..."
+      title: "更新中..."
     })
 
     //获取富文本编辑器里的内容
@@ -82,8 +164,8 @@ Page({
       success: res => {
         article.content = res.html
 
-        //上传图片
-        if (this.data.articleImg) {
+        //重新上传了图片才更新
+        if (this.data.articleImg != this.data.article.img) {
           let articleImg = this.data.articleImg
           let filename = articleImg.substring(articleImg.lastIndexOf("."))
           filename = new Date().getTime() + filename
@@ -93,37 +175,51 @@ Page({
             filePath: this.data.articleImg,
             success: res => {
               article.img = res.fileID
-              this.createCloudArticle(article)
+              this.updateCloudArticle(article)
             },
             fail: console.error
           })
 
         } else {
-          //创建到云数据库
-          this.createCloudArticle(article)
+          //更新到云数据库(article是新对象)
+          article.img = this.data.articleImg
+          this.updateCloudArticle(article)
         }
 
-        // this.setData({
-        //   article:article
-        // })
       }
     })
   },
 
   //创建博客到云数据库
-  createCloudArticle: function (article) {
-    article.time = new Date().getTime()
+  updateCloudArticle: function (article) {
+    article.id = this.data.articleId
+    article.category = this.data.category
+    article.categoryName = this.data.categoryName
+    article.subCategory = this.data.subCategory
+    article.subCategoryName = this.data.subCategoryName
+    article.recommend = this.data.recommend
+    article.recommendName = this.data.recommendName
+    article.status = this.data.status
+    article.statusName = this.data.statusName
 
-    //添加博客到云平台数据库中
+    article.title = article.title.trim()
+    article.desc = article.desc.trim()
+    article.link = article.link.trim()
+    article.download = article.download.trim()
+    article.pdf = article.pdf.trim()
+    article.finderUserName = article.finderUserName.trim()
+    article.videoId = article.videoId.trim()
+
+    console.log("articleFunctions.updateArticle");
     wx.cloud.callFunction({
       name: "articleFunctions",
       data: {
-        type: "addArticle",
+        type: "updateArticle",
         article: article
       },
       success: res => {
         wx.showToast({
-          title: '添加成功',
+          title: '更新成功',
         })
         console.log(res);
       },

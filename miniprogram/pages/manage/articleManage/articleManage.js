@@ -1,4 +1,5 @@
 // pages/manage/articleManage/articleManage.js
+let util = require("../../../utils/util.js")
 const db = wx.cloud.database()
 
 Page({
@@ -15,8 +16,30 @@ Page({
    */
   onLoad: function (options) {
     //加载云数据库中的数据
+    this.loadArticle()
+  },
+  
+  //刷新
+  loadArticle: function(key){
     wx.showLoading()
-    db.collection("article").orderBy("time", "desc").get({
+
+    let doc = db.collection("article").field({
+      title: true,
+      categoryName:true,
+      subCategoryName:true
+    })
+
+    if(key && !util.isEmpty(key)){
+      doc = doc.where({
+        title: db.RegExp({
+          regexp: key,
+          options: 'i'
+        })
+      })
+    }
+
+    //默认加载20条
+    doc.orderBy("time", "desc").get({
       success: res => {
         this.setData({
           articles: res.data
@@ -24,6 +47,13 @@ Page({
       },
       complete: res => wx.hideLoading()
     })
+
+  },
+
+  //搜索
+  doSearch:function(e){
+    let key = e.detail.value.key
+    this.loadArticle(key.trim())
   },
 
   //添加文章

@@ -1,0 +1,36 @@
+.container{
+  margin-bottom: 30rpx;
+}
+
+.qa-card {
+  margin-bottom: 30rpx;
+  background-color: #fff;
+  border-radius: 6rpx;
+  padding: 20rpx;
+}
+
+.title {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 15rpx;
+}
+
+.qa-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top:30rpx;
+}
+.qa-footer .tip{
+  color: #6a6a6a;
+  margin-right: 30rpx;
+  font-size: 24rpx;
+}
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 30rpx;
+}
+

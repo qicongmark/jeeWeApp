@@ -1,0 +1,21 @@
+
+<form bindsubmit="doSearch" class="search-form">
+    <view class="search-group">
+    <input name="key" class="form-control" maxlength="15" value="{{key}}"/>
+    <button type="primary" size="mini" form-type="submit" style="height:32px">检 索</button>
+    </view>
+</form>
+
+<view class="container">
+    <view class="article-item" wx:for="{{articles}}" wx:key="key">
+        <navigator wx:if="{{item.link}}" hover-class="none" url="/pages/webview/webview?url={{item.link}}">
+          <rich-text class="article-name" nodes="{{item.title}}"></rich-text>
+          <rich-text class="article-desc" nodes="{{item.desc}}"></rich-text>
+        </navigator>
+        <navigator wx:else hover-class="none" url="/pages/article/article?id={{item._id}}">
+          <rich-text class="article-name" nodes="{{item.title}}"></rich-text>
+          <rich-text class="article-desc" nodes="{{item.desc}}"></rich-text>
+        </navigator>
+    </view>
+</view>
+

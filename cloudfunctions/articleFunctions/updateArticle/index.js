@@ -13,8 +13,6 @@ exports.main = async (event, context) => {
   // 获取基础信息
   let article = event.article
 
-  console.log("article.id = ", article.id);
-
   return await db.collection("article").doc(article.id).update({
     data:article,
     success:res=>{

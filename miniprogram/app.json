@@ -1,34 +1,62 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/article/article",
-    "pages/article/articleRead/articleRead",
+    "pages/work/work",
+    "pages/user/user",
+    "pages/course/course",
+    "pages/video/video",
     "pages/manage/manage",
-    "pages/manage/categoryManage/categoryManage",
     "pages/manage/articleManage/articleManage",
     "pages/manage/articleAdd/articleAdd",
-    "pages/manage/articleEdit/articleEdit"
+    "pages/manage/articleEdit/articleEdit",
+    "pages/manage/questionManage/questionManage",
+    "pages/resource/resource",
+    "pages/download/download",
+    "pages/archived/archived",
+    "pages/help/help",
+    "pages/search/search",
+    "pages/article/article",
+    "pages/webview/webview",
+    "pages/manage/questionAdd/questionAdd",
+    "pages/manage/questionEdit/questionEdit",
+    "pages/qaindex/qaindex",
+    "pages/qalist/qalist",
+    "pages/exam/exam",
+    "pages/qa/qa"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "jeeWeApp",
+    "navigationBarTitleText": "八股文JAVA编程",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#2b2b2b",
+    "selectedColor": "#2b2b2b",
     "backgroundColor": "#F6F6F6",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/icon/home.png",
-        "selectedIconPath": "images/icon/home.png",
-        "text": "首页"
+        "iconPath": "images/icon/code.png",
+        "selectedIconPath": "images/icon/code-select.png",
+        "text": "主页"
       },
       {
-        "pagePath": "pages/manage/manage",
+        "pagePath": "pages/course/course",
+        "iconPath": "images/icon/course.png",
+        "selectedIconPath": "images/icon/course-select.png",
+        "text": "视频教程"
+      },
+      {
+        "pagePath": "pages/work/work",
+        "iconPath": "images/icon/clock.png",
+        "selectedIconPath": "images/icon/clock-select.png",
+        "text": "大厂作息"
+      },
+      {
+        "pagePath": "pages/user/user",
         "iconPath": "images/icon/user.png",
         "selectedIconPath": "images/icon/user-select.png",
         "text": "我的"

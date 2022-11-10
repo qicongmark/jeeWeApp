@@ -1,0 +1,171 @@
+.header{
+  background-color: #f6f6f6;
+  padding-top:15rpx;
+  padding-bottom: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position:fixed;
+  top: -1rpx;
+  left: 0rpx;
+  z-index: 999;
+}
+
+.header view{
+  width: 33.3%;
+  text-align: center;
+}
+
+.header button{
+  color: #1296db;
+  font-weight: normal;
+}
+
+.container{
+  padding: 0rpx;
+  background-color: #fff;
+  height: 100vh;
+}
+
+.qa-card {
+  margin-top: 80rpx;
+  background-color: #fff;
+  padding: 40rpx;
+}
+
+.type-desc {
+  width: 100%;
+  margin: 15rpx 0rpx 15rpx 0rpx;
+  color: #6a6a6a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.qa-tip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: normal;
+}
+.qa-tip .tip{
+  color: #6a6a6a;
+  margin-right: 30rpx;
+  font-size: 24rpx;
+}
+.qa-tip .icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 30rpx;
+}
+
+.title {
+  width: 100%;
+  text-align: left;
+  margin-top: 30rpx;
+  font-weight: bold;
+}
+
+.answer-label{
+  display: block;
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.answer-check{
+  margin-left: 15rpx;
+}
+
+.answer-opt{
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.answer-opt button{
+  text-align: center;
+  font-weight: normal;
+}
+
+.answer-result{
+  font-weight: bold;
+  color: #1296db;
+  width: 100%;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.title-success{
+  color: green;
+}
+
+.title-error{
+  color: red;
+}
+
+.answer-desc{
+  margin-top: 80rpx;
+}
+
+.answer-desc label{
+  margin-right: 6rpx;
+  font-weight: bold;
+}
+
+.answer-desc .desc{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #6a6a6a;
+}
+
+.answer-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  font-size: 28rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  justify-content: center;
+}
+
+.answer-btn icon{
+  margin-right: 6rpx;
+}
+
+.footer{
+  margin-top: 60rpx;
+  padding-top: 30rpx;
+  border-top: 1rpx dashed #dbdbdb;
+}
+
+.artimg{
+  border-radius: 6rpx;
+}
+
+.tool {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+  width: auto;
+  padding-left: 0rpx;
+  font-weight: normal;
+  font-size:medium;
+}
+
+.tool image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+

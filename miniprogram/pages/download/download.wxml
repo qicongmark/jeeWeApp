@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<wxs module="DateFormat" src="../../wxs/DateFormat.wxs"></wxs>
+
+<view class="container">
+
+  <!-- 文章展示 -->
+  <view wx:for="{{articles}}" class="article-card">
+    <navigator hover-class="none" url="/pages/article/article?id={{item._id}}" class="article">
+      <view class="title">{{item.title}}</view>
+      <image lazy-load="true" class="article-img" wx:if="{{item.img}}" src="{{item.img}}" mode="aspectFill"></image>
+    </navigator>
+    
+    <view class="article-footer">
+      <view class="comment">
+        <image src="../../images/icon/read.png" />{{item.read}}
+      </view>
+      <button plain="true" type="primary" open-type="share" class="icon-btn" style="width:auto;height:auto;border:none;">
+        <image class="icon" mode="aspectFit" src="../../images/icon/share.png"></image>
+      </button>
+    </view>
+
+  </view>
+
+</view>

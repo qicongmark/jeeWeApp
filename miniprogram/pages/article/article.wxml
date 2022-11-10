@@ -2,28 +2,44 @@
 <wxs module="DateFormat" src="../../wxs/DateFormat.wxs"></wxs>
 
 <view class="container">
-
-  <!-- 文章展示 -->
-  <view wx:for="{{articles}}" class="article-card">
-    <navigator url="/pages/article/articleRead/articleRead?id={{item._id}}" class="article">
-      <view class="title">{{item.title}}</view>
-      <image class="article-img" wx:if="{{item.img}}" src="{{item.img}}" mode="widthFix"></image>
-    </navigator>
-
-    <view class="article-footer">
-      <view class="time">{{DateFormat.formatTime(item.time)}}</view>
-      <button class="icon-btn" open-type="share" style="width: auto;height:auto;">
-        <image class="icon" mode="aspectFit" src="../../images/icon/wechat.png"></image>分享
-      </button>
+  <view class="title">
+    <text>{{article.title}}</text>
+    <view class="comment">
+      <text>阅读量：{{article.read}}</text>
+      <text>{{DateFormat.formatTime(article.time)}}</text>
     </view>
+  </view>
 
-    <!--
-    <view class="article-comment">
-      <image class="avatar" src="{{item.avatar}}"></image>
-      <image class="avatar" src="{{item.avatar}}"></image>
-      <image class="avatar" src="{{item.avatar}}"></image>
-    </view>-->
+  <view class="content">
+    <rich-text nodes="{{article.content}}"></rich-text>
+  </view>
 
+  <view class="footer">
+    <button bindtap="openVideo" wx:if="{{article.videoId}}" data-fname="{{article.finderUserName}}" data-vid="{{article.videoId}}" class="tool" style="width: auto;">
+      <image src="../../images/icon/video.png"></image>
+      点击查看视频教程
+    </button>
+
+    <button bindtap="openPdf" wx:if="{{article.pdf}}" data-pdf="{{article.pdf}}" class="tool" style="width: auto;">
+      <image src="../../images/icon/pdf.png"></image>
+      点击阅读PDF文档
+    </button>
+
+    <button bindtap="copyDownload" wx:if="{{article.download}}" data-download="{{article.download}}" class="tool" style="width: auto;">
+      <image src="../../images/icon/download.png"></image>
+      点击复制下载链接
+    </button>
+
+    <button open-type="share" class="tool" style="width: auto;">
+      <image src="../../images/icon/share.png"></image>
+      点击分享好友或群
+    </button>
+  </view>
+
+
+  <view class="qrcode">
+    <view>进群交流＋V：qicong88</view>
   </view>
 
 </view>
+

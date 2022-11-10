@@ -1,0 +1,51 @@
+page{
+  background-color: #FFF;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 30rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc{
+  margin-top: 40rpx;
+  text-align: center;
+}
+.desc view{
+  margin-top: 15rpx;
+  letter-spacing: 2rpx;
+}
+
+.section{
+  text-align: center;
+  width: 100%;
+  margin-top: 60rpx;
+  padding-top: 40rpx;
+  border-top: 1rpx dashed #dbdbdb;
+}
+
+.section view{
+  margin-bottom: 15rpx;
+  letter-spacing: 2rpx;
+}
+
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+  width: auto;
+  text-align: center;
+}
+
+.tool image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}

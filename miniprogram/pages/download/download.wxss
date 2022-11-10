@@ -1,0 +1,77 @@
+.container{
+    margin-bottom: 30rpx;
+}
+
+.article-card {
+    margin-bottom: 30rpx;
+    background-color: #fff;
+    border-radius: 6rpx;
+    padding: 20rpx;
+}
+
+.article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article .title {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25rpx;
+    font-weight: bold;
+}
+
+.article-img {
+    width: 100%;
+    max-height: 240rpx;
+    border-radius: 6rpx;
+}
+
+.article-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.icon-btn {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-share {
+    margin-right: 10rpx;
+    width: 18px;
+}
+
+.avatar {
+    overflow: hidden;
+    width: 60rpx;
+    height: 60rpx;
+    flex-shrink: 0;
+    margin-right: 15rpx;
+    border-radius: 50%;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    color: #6a6a6a;
+    font-size: 24rpx;
+    flex: 1;
+    align-items: center;
+}
+
+.comment image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+    margin-left: 12rpx;
+}

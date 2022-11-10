@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="header">
+    <button bindtap="pre" type="default" size="mini" style="margin-left:15rpx;">上一题</button>
+    <view style="color: #6a6a6a;">{{qaObj.typeName}}</view>
+    <button bindtap="next" type="default" size="mini" style="margin-right:15rpx;">下一题</button>
+  </view>
+
+  <view class="qa-card">
+    <view class="type-desc">
+      <view style="font-weight: bold;">题目</view>
+      <view class="qa-tip">
+        <view class="tip">{{qaObj.levelName}}</view>
+        <image class="icon" src="../../images/icon/peoples.png" mode="aspectFit"></image>
+        <view class="tip" style="margin-left:6rpx;">{{qaObj.read}}</view>
+      </view>
+    </view>
+
+    <view class="title">
+      <text>{{qaObj.title}}</text>
+    </view>
+    <view class="answer">
+      <checkbox-group bindchange="checkChange" wx:if="{{qaObj.type == 3}}">
+        <label wx:for="{{qaObj.answers}}" wx:if="{{item.value}}" class="answer-label">
+            <view>{{item.name}}.</view>
+            <checkbox class="answer-check" checked="{{item.uck?true:false}}" value="{{item.name}}"/>
+            <view>{{item.value}}</view>
+        </label>
+      </checkbox-group>
+
+      <radio-group bindchange="radioChange" wx:if="{{qaObj.type == 2}}">
+        <label wx:for="{{qaObj.answers}}" wx:if="{{item.value}}" class="answer-label">
+            <view>{{item.name}}.</view>
+            <radio class="answer-check" checked="{{item.uck?true:false}}" value="{{item.name}}"/>
+            <view>{{item.value}}</view>
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="answer-opt">
+      <button bindtap="submitAnswer" wx:if="{{qaObj.type > 1}}" type="primary" size="mini" style="margin-right:20rpx;">提交</button>
+      <button bindtap="showAnswer" type="default" size="mini" >查看答案</button>
+      <button type="warn" open-type="share" size="mini"  style="margin-left:20rpx;">分享好友</button>
+    </view>
+
+    <block wx:if="{{showAnswerFlag}}" >
+      <view class="answer-desc">
+        <block wx:if="{{qaObj.type > 1}}">
+          <label class="title" style="color:#6a6a6a">参考答案</label>
+          <label wx:for="{{qaObj.answers}}" wx:if="{{item.value && item.ck}}">
+            {{item.name}}
+          </label>
+        </block>
+
+        <view class="desc" wx:if="{{qaObj.desc}}">
+          <text>{{qaObj.desc}}</text>
+        </view>
+      </view>
+
+      <view class="footer" wx:if="{{qaObj.link || qaObj.videoId || qaObj.download}}">
+        <button bindtap="openLink" wx:if="{{qaObj.link}}" data-link="{{qaObj.link}}" class="tool" style="width: auto;">
+          <image src="../../images/icon/link.png"></image>
+          点击查看详细答案
+        </button>
+
+        <button bindtap="openVideo" wx:if="{{qaObj.videoId}}" data-fname="{{qaObj.finderUserName}}" data-vid="{{qaObj.videoId}}" class="tool" style="width: auto;">
+          <image src="../../images/icon/video.png"></image>
+          点击查看解读视频
+        </button>
+
+        <button bindtap="copyDownload" wx:if="{{qaObj.download}}" data-download="{{qaObj.download}}" class="tool" style="width: auto;">
+          <image src="../../images/icon/download.png"></image>
+          点击复制题库下载链接
+        </button>
+      </view>
+
+    </block>
+
+  </view>
+</view>
+

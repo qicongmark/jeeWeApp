@@ -1,0 +1,17 @@
+<view class="container">
+  <view wx:if="{{name}}" class="title">{{name}}</view>
+  
+  <view class="course" wx:if="{{courseChapter}}">
+    <block wx:for="{{courseChapter}}" >
+    <view class="chapter">{{item.title}}</view>
+    <view wx:if="{{item.sections}}" class="section-block">
+      <view class="section" wx:for="{{item.sections}}">
+        <view wx:if="{{item.img}}" class="section-title" bindtap="previewImg" data-img="{{item.img}}">{{item.title}}</view>
+        <view wx:else data-fid="{{item.fid}}" bindtap="openVideo" class="section-title2" >{{item.title}}</view>
+        <image data-fid="{{item.fid}}" bindtap="openVideo" wx:if="{{item.fid}}" src="../../images/icon/video.png" class="section-video"></image>
+      </view>
+    </view>
+    </block>
+  </view>
+
+</view>

@@ -1,6 +1,6 @@
 const db = wx.cloud.database()
 const app = getApp()
-let util = require("../../../utils/util.js")
+let util = require("../../../utils/util.js");
 
 Page({
 
@@ -121,7 +121,7 @@ Page({
             }
 
             that.editorContext.insertImage({
-              src: cloudRes.fileID, 
+              src: cloudRes.fileID, //可以换成云函数的 fileid
               data: {
                 id: filename
               },

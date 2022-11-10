@@ -1,0 +1,98 @@
+/* pages/course/course.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 40rpx;
+  background: #F6F6F6;
+}
+
+.title{
+  font-weight: bold;
+  margin-top: 30rpx;
+  background-color: #d0d0d5;
+  border: 2rpx solid #2b2b2b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding:20rpx;
+}
+.title image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.title view{
+  font-size: large;
+  margin-left: 30rpx;
+  letter-spacing: 1rpx;
+}
+.desc{
+  width: 100%;
+  margin-top: 40rpx;
+  color: #0593d3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.course{
+  padding: 10rpx;
+  margin-bottom: 80px;
+}
+.course .chapter{
+  font-weight: bold;
+  margin-top: 40rpx;
+  font-size: large;
+}
+.section-block{
+  margin-left: 30rpx;
+}
+.section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.section .section-title{
+  width: max-content;
+  margin-top: 20rpx;
+  padding: 6rpx 0rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #6bccf8;
+}
+.section .section-title:hover{
+  color: #0593d3;
+}
+.section .section-title2{
+  width: max-content;
+  margin-top: 20rpx;
+  padding: 6rpx 0rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #dbdbdb;
+}
+.section-video{
+  margin-top: 20rpx;
+  width: 56rpx;
+  height: 56rpx;
+}
+.mysv{
+  width: 100%;
+  height: 100vh;
+  white-space: nowrap;
+}
+.course-img{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+}
+.share-btn-block {
+  position: fixed;
+  right: 0rpx;
+  top: 30px;
+  display: flex;
+  justify-content: end;
+  flex-direction: row;
+}
+.share-btn-block button{
+  border-radius: 0;
+}

@@ -1,0 +1,34 @@
+<!--pages/learn/learn.wxml-->
+<view class="container">
+
+  <view class="desc">
+    <view>分享Java等编程语言学习资料</view>
+    <view>提供各种软件、项目源码</view>
+    <view>免费的编程专栏和视频教程</view>
+  </view>
+
+  <view class="section">
+    <button bindtap="copy" data-content="https://github.com/qicongmark" class="tool" style="width: auto;">
+      <view>点击复制GitHub地址</view>
+      <view>https://github.com/qicongmark</view>
+    </button>
+    
+    <button bindtap="copy" data-content="468860602" class="tool" style="width: auto;">
+      <view>点击复制Java交流QQ-2群</view>
+      <view>468860602</view>
+    </button>
+
+    <button bindtap="copy" data-content="325025375" class="tool" style="width: auto;">
+      <view>点击复制小程序交流QQ-1群</view>
+      <view>325025375</view>
+    </button>
+  </view>
+
+  <view class="section" style="margin-top:30rpx;">
+    <view>长按关注公众号</view>
+    <image bindload="hanldload" show-menu-by-longpress="true" src="cloud://cloud1-9gpqtz2t48f59ac7.636c-cloud1-9gpqtz2t48f59ac7-1255805873/qrcode.jpg" mode="aspectFit"/>
+  </view>
+
+</view>
+
+

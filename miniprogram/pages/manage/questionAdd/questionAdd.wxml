@@ -1,0 +1,76 @@
+<view class="container">
+  <form class="jeeform" bindsubmit="submitForm">
+    <view class="form-group">
+      <label class="form-label">标题</label>
+      <textarea name="title" class="form-textarea" placeholder="请输入标题"  style="height:150px;"></textarea>
+    </view>
+
+    <checkbox-group bindchange="ckChange">
+      <view class="form-group" wx:for="{{answers}}">
+        <label class="form-label">选项 {{item.name}}
+            <checkbox class="form-check" value="{{item.name}}" checked="{{item.ck}}"/>
+        </label>
+        <textarea name="{{item.name}}" class="form-textarea" placeholder="请输入答案" ></textarea>
+      </view>
+    </checkbox-group>
+
+    <view class="form-group">
+      <label class="form-label">答案说明</label>
+      <textarea name="desc" class="form-textarea" placeholder="请输入答案说明"  style="height:150px;"></textarea>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">题型</label>
+      <picker class="form-control" bindchange="changeType" value="{{index}}" range="{{typeArray}}" range-key="name">
+        <label>{{typeName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">分类</label>
+      <picker class="form-control" bindchange="changeSubCategory" value="{{index}}" range="{{subCategoryArray}}" range-key="name">
+        <label>{{subCategoryName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">级别</label>
+      <picker class="form-control" bindchange="changeLevel" value="{{index}}" range="{{levelArray}}" range-key="name">
+        <label>{{levelName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">是否推荐</label>
+      <picker class="form-control" bindchange="changeRecommend" value="{{index}}" range="{{recommendArray}}" range-key="name">
+        <label>{{recommendName}}</label>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">原文链接</label>
+      <input name="link" class="form-control" placeholder="请输入"/>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">下载地址</label>
+      <input name="download" class="form-control" placeholder="请输入"/>
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">视频号ID</label>
+      <input name="finderUserName" value="sphAfDyZMDY3NF3" class="form-control" placeholder="请输入"/>
+    </view>
+    
+    <view class="form-group">
+      <label class="form-label">视频ID</label>
+      <input name="videoId" class="form-control" placeholder="请输入"/>
+    </view>
+
+    <view style="margin-top:30rpx;margin-bottom:60rpx;">
+      <button type="primary" form-type="submit">保 存</button>
+    </view>
+    
+  </form>
+</view>
+

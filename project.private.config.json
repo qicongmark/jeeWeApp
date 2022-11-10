@@ -1,16 +1,14 @@
 {
   "setting": {
-    "compileHotReLoad": false,
-    "urlCheck": false
+    "compileHotReLoad": true,
+    "urlCheck": true
   },
-  "projectname": "jeeWeApp",
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "condition": {
     "miniprogram": {
       "list": [
         {
-          "name": "articleAdd",
-          "pathName": "pages/article/articleAdd/articleAdd",
+          "name": "",
+          "pathName": "pages/index/index",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -23,13 +21,36 @@
           "scene": null
         },
         {
-          "name": "manage",
-          "pathName": "pages/manage/manage",
+          "name": "help",
+          "pathName": "pages/help/help",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "search",
+          "pathName": "pages/search/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "qaindex",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "qalist",
+          "pathName": "pages/qalist/qalist",
+          "query": "id=1",
           "launchMode": "default",
           "scene": null
         }
       ]
     }
-  }
+  },
+  "projectname": "baGuWenJavaApp",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

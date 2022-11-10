@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<wxs module="DateFormat" src="../../wxs/DateFormat.wxs"></wxs>
+
+<view class="container">
+
+  <!-- 文章展示 -->
+  <view wx:for="{{articles}}" class="article-card">
+    <navigator hover-class="none" url="/pages/webview/webview?url={{item.link}}" class="article">
+      <view class="title">{{item.title}}</view>
+    </navigator>
+    
+    <view class="article-footer">
+      <view class="comment">
+        <view class="time">发布时间：{{DateFormat.formatTime(item.time)}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

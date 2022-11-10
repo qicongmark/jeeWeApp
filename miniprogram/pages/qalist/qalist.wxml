@@ -1,0 +1,15 @@
+<view class="container">
+  <view wx:for="{{questionList}}" class="qa-card">
+    <navigator hover-class="none" url="/pages/qa/qa?id={{item._id}}&cid={{cid}}" >
+      <view class="title" style="color: #6a6a6a;">{{item.typeName}}</view>
+      <view class="title">{{item.title}}</view>
+    </navigator>
+    
+    <view class="qa-footer">
+      <view class="tip">{{item.levelName}}</view>
+      <image class="icon" src="../../images/icon/peoples.png" mode="aspectFit"></image>
+      <view class="tip" style="margin-left:6rpx;">{{item.read}}</view>
+    </view>
+  </view>
+</view>
+

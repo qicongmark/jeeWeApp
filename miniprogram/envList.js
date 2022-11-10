@@ -1,12 +1,6 @@
-
-/**
- * 开发者修改这里的 envId，改成你的云开发id即可
- **/
-
-const envList = [{"envId":"qdc-dev-8gf46v8q020bdd5c","alias":"dev-id"}]
+const envList = [{"envId":"cloud1-4grkhtv8b5892e34","alias":"cloud1"}]
 const isMac = false
 module.exports = {
     envList,
     isMac
 }
-

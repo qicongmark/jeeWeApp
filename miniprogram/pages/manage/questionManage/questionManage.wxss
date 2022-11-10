@@ -1,0 +1,17 @@
+
+@import "../manage.wxss";
+
+.container{
+  padding: 0px;
+  margin-bottom: 60rpx;
+}
+
+.icon-btn text{
+  color: #2b2b2b;
+}
+
+.title{
+  text-align: left;
+  width: 100%;
+}
+

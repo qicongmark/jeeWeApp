@@ -1,5 +1,4 @@
-const app = getApp()
-
+// pages/manage/manage.js
 Page({
 
   /**
@@ -13,27 +12,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showShareMenu({
-      withShareTicket:true,
-      menus:['shareAppMessage','shareTimeline']
-    })
+
   },
 
-  toMy:function(e){
-    wx.showToast({
-      title: '功能开发中...',
-    })
-  },
-
-  /**
-   * 管理页面
-   */
-  toManage: function(e){
-    wx.showLoading({
-      title: "登录校验中..."
-    })
+  //管理文章
+  manageArticle: function(e){
     wx.navigateTo({
       url: '/pages/manage/articleManage/articleManage',
+    })
+  },
+
+  //管理分类
+  manageCategory: function(e){
+    wx.navigateTo({
+      url: '/pages/manage/categoryManage/categoryManage',
     })
   },
 
@@ -41,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

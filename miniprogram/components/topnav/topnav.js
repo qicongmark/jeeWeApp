@@ -33,9 +33,9 @@ Component({
         wx.redirectTo({
           url: '/pages/manage/articleManage/articleManage',
         })
-      } else if (p == 'category') {
+      } else if (p == 'question') {
         wx.redirectTo({
-          url: '/pages/manage/categoryManage/categoryManage',
+          url: '/pages/manage/questionManage/questionManage',
         })
       }
     }

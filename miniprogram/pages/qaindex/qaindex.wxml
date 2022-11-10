@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="interview">
+      <image bindtap="exam" src="../../images/interview.gif" mode="aspectFit" />
+      <image bindtap="help" src="../../images/communication.gif" mode="aspectFit" />
+  </view>
+
+  <button class="tab-title" style="width:100%;">已有 <text wx:if="{{site}}">{{site.qa}}</text> 人参与题库挑战</button>
+  
+  <view class="tab">
+      <view id="1" bindtap="changeTab" class="tab-item {{tab==1?'active':''}}">题库挑战</view>
+      <view id="2" bindtap="changeTab" class="tab-item {{tab==2?'active':''}}">题库下载</view>
+  </view>
+
+  <view class="tab-content">
+      <view class="category" wx:if="{{tab==1}}">
+          <view class="c-item" wx:for="{{category}}">
+            <navigator url="/pages/qalist/qalist?id={{item.id}}">
+              <image src="../../images/{{item.image}}" mode="aspectFill"></image>
+              <view class="c-name">{{item.name}}</view>
+            </navigator>
+          </view>
+      </view>
+
+      <view class="category" wx:if="{{tab==2}}">
+          <view class="c-item" wx:for="{{qArticles}}">
+            <navigator url="/pages/article/article?id={{item._id}}">
+              <image src="../../images/icon/download.png" mode="aspectFill"></image>
+              <view class="c-name">{{item.title}}</view>
+            </navigator>
+          </view>
+      </view>
+
+  </view>
+
+</view>

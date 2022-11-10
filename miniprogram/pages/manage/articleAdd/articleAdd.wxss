@@ -4,7 +4,6 @@
 @import "../manage.wxss";
 
 .container{
-  padding: 15rpx 30rpx;
   background-color: #FFF;
 }
 

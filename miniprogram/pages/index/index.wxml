@@ -8,22 +8,52 @@
     indicator-active-color="#42c642">
 
     <swiper-item wx:for="{{banners}}">
-      <navigator url="{{item.link}}">
-      <image src="{{item.cover}}" mode="aspectFill"></image>
-      </navigator>
+        <navigator wx:if="{{item.link}}" url="{{item.link}}" hover-class="none" url="/pages/webview/webview?url={{item.link}}">
+            <image bindload="loadimg" src="{{item.img}}" mode="aspectFill"></image>
+        </navigator>
+        <navigator wx:else hover-class="none" url="/pages/article/article?id={{item._id}}">
+            <image bindload="loadimg" src="{{item.img}}" mode="aspectFill"></image>
+        </navigator>
     </swiper-item>
-
+    
   </swiper>
 
+  <view class="interview">
+    <image bindtap="exam" src="../../images/interview.gif" mode="aspectFit"/>
+    <image bindtap="help" src="../../images/communication.gif" mode="aspectFit"/>
+  </view>
+  
   <!-- 菜单导航 -->
   <view class="category">
     <view class="c-item" wx:for="{{category}}">
-      <navigator url="{{item.path}}?code={{item.code}}&name={{item.name}}">
-      <image src="../../images/{{item.image}}" mode="aspectFill"></image>
-      <view class="c-name">{{item.name}}</view>
-      </navigator>
+      <view bindtap="navigator" hover-class="none" data-id="{{item.id}}">
+        <image src="../../images/{{item.image}}" mode="aspectFill"></image>
+        <view class="c-name">{{item.name}}</view>
+      </view>
     </view>
   </view>
 
+  <form bindsubmit="doSearch" style="width: 90%;">
+    <view class="search-group">
+      <input name="key" class="form-control" maxlength="15"/>
+      <button type="primary" size="mini" form-type="submit" style="height:32px;">检 索</button>
+    </view>
+  </form>
+
+  <navigator class="q-panel" hover-class="none" url="/pages/qa/qa?id={{question._id}}&cid={{question.subCategory}}">
+    <view class="qa-title">
+      <view style="font-weight: bold;flex: 1;">每日一题</view>
+      <view class="qa-tip">
+        <view class="tip">{{question.levelName}}</view>
+        <image class="icon" src="../../images/icon/peoples.png" mode="aspectFit"></image>
+        <view class="tip" style="margin-left:6rpx;">{{question.read}}</view>
+      </view>
+    </view>
+    <button style="width: 100%;margin:30rpx 0rpx;" hover-class="none">
+      <text style="color:#111;font-weight: normal;">{{question.title}}</text>
+    </button>
+  </navigator>
   
+  <view wx:if="{{site}}" class="footer">累计访问次数 {{site.av}} 次</view>
+
 </view>

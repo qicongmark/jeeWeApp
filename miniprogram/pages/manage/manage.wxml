@@ -1,29 +1,5 @@
-<view class="container">
+<!--pages/manage/manage.wxml-->
 
-<view class="user-header">
-  <image src="../../images/icon/user-select.png" mode="aspectFit" class="user-avatar"></image>
-  <view class="user-info">
-    <view  class="user-nickname">匿名用户</view>
-  </view>
-</view>
+<button type="primary" bindtap="manageCategory">分类管理</button>
 
-<view style="padding:0rpx 30rpx;">
-  <view class="ux-panel" >
-    <view class="panel-title">服务</view>
-    
-    <view class="panel-content">
-      <button bindtap="toManage" style="padding: 0px;width:auto;font-weight: normal;" hover-class="none">
-        <image src="../../images/icon/manage.png"></image>
-        <text class="title">后台管理</text>
-      </button>
-
-      <button open-type="contact" style="padding: 0px;width:auto;font-weight: normal;" hover-class="none">
-        <image src="../../images/icon/customer.png"></image>
-        <text class="title">客服中心</text>
-      </button>
-      
-    </view>
-  </view>
-</view>
-
-</view>
+<button type="primary" bindtap="manageArticle">文章管理</button>

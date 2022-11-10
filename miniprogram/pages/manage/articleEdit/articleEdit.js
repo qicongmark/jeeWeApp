@@ -1,6 +1,6 @@
 const db = wx.cloud.database()
 const app = getApp()
-let util = require("../../../utils/util.js")
+let util = require("../../../utils/util.js");
 
 Page({
 
@@ -210,7 +210,7 @@ Page({
     article.finderUserName = article.finderUserName.trim()
     article.videoId = article.videoId.trim()
 
-    console.log("articleFunctions.updateArticle");
+    //添加博客到云平台数据库中
     wx.cloud.callFunction({
       name: "articleFunctions",
       data: {

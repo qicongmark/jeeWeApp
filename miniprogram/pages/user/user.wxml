@@ -1,0 +1,48 @@
+<view class="container">
+
+  <view class="user-header">
+    <image src="../../images/icon/user-select.png" mode="aspectFit" class="user-avatar"></image>
+    <view class="user-info">
+      <view  class="user-nickname">匿名用户</view>
+    </view>
+  </view>
+
+  <view style="padding:0rpx 30rpx;">
+    <view class="ux-panel" >
+      <view class="panel-title">我的</view>
+      
+      <view class="panel-content">
+        <button bindtap="toMy" style="padding: 0px;width:auto;font-weight: normal;" hover-class="none">
+          <image src="../../images/icon/clock-select.png"></image>
+          <text class="title">大厂作息</text>
+        </button>
+
+        <button bindtap="toMy" style="padding: 0px;width:auto;font-weight: normal;" hover-class="none">
+          <image src="../../images/icon/like.png"></image>
+          <text class="title">喜欢</text>
+        </button>
+        
+      </view>
+    </view>
+  </view>
+
+  <view style="padding:0rpx 30rpx;">
+    <view class="ux-panel" >
+      <view class="panel-title">服务</view>
+      
+      <view class="panel-content">
+        <button bindtap="toManage" style="padding: 0px;width:auto;font-weight: normal;" hover-class="none">
+          <image src="../../images/icon/manage.png"></image>
+          <text class="title">后台管理</text>
+        </button>
+
+        <button open-type="contact" style="padding: 0px;width:auto;font-weight: normal;" hover-class="none">
+          <image src="../../images/icon/customer.png"></image>
+          <text class="title">客服中心</text>
+        </button>
+        
+      </view>
+    </view>
+  </view>
+
+</view>

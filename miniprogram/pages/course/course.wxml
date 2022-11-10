@@ -1,0 +1,30 @@
+<!--pages/learn/learn.wxml-->
+<view class="container">
+
+  <view class="learn-desc">
+    <view>累计 2000＋ 学员学会了编程</view>
+    <view>＋V：<text style="color: red;">qicong88</text></view>
+  </view>
+
+  <view class="learn-compony">
+    <image wx:for="{{componey}}" src="../../images/{{item}}" mode="aspectFit"></image>
+  </view>
+
+  <navigator class="learn-start" url="/pages/webview/webview?url={{url}}" >
+    <view>Java和99个小程序源码下载</view>
+  </navigator>
+
+  <view class="learn-desc">
+    <view>选择下方编程语言，开始学习编程 ...</view>
+  </view>
+
+  <view class="learn-course">
+    <navigator url="/pages/video/video?code={{item.code}}&name={{item.name}}" wx:for="{{courses}}" >
+    <view class="course">
+      <image mode="heightFix" src="{{item.icon}}"></image>
+      <view>{{item.name}}</view>
+    </view>
+    </navigator>
+  </view>
+
+</view>

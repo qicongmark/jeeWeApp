@@ -1,74 +1,78 @@
-
-.article-card{
-  margin-bottom: 30rpx;
+page{
   background-color: #fff;
-  border-radius: 15rpx;
-  padding: 20rpx;
 }
-.article {
-  flex: 1;
-	display: flex;
-	flex-direction: column;
-  align-items: center;
-}
-
-.article .title{
-  width: 100%;
-  font-weight: bold;
+.title{
+  color: #2b2b2b;
   text-align: left;
-  margin-bottom: 30rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+  border-bottom: 1rpx solid #dbdbdb;
+  padding:0rpx 20rpx;
+  padding-bottom: 30rpx;
+  margin-top: 15rpx;
 }
 
-.article-img{
-  width: 100%;
-}
-
-.article-footer{
-  display: flex;
-	flex-direction: row;
-  align-items: center;
-  justify-content:flex-start;
-  width: 100%;
-  margin-top: 15px;
-}
-
-.share-btn {
+.comment {
   display: flex;
   flex-direction: row;
-  border: 1px solid #2aa515;
-  color: #2aa515;
-  font-weight: normal;
-  margin: 0px;
-  padding: 5rpx 20rpx;
-  border-radius: 65rpx;
+  color: #6a6a6a;
+  font-size: 24rpx;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-
-.icon-share{
-  margin-right:10rpx;
-  width: 18px;
-}
-
-.avatar {
-	overflow: hidden;
-	width: 60rpx;
-	height: 60rpx;
-	flex-shrink: 0;
-	margin-right: 15rpx;
-  border-radius: 50%;
-}
-
-.time {
-	color: #ccc;
-  flex: 1;
-}
-
-.article-comment{
+  justify-content: space-between;
   margin-top: 30rpx;
-  width: 100%;
-  border-top: 1px solid #f6f6f6;
-  padding-top: 30rpx;
+  font-weight: normal;
 }
 
+.content{
+  margin: 30rpx 0rpx;
+  text-align: left;
+  padding:0rpx 20rpx;
+  padding-bottom: 60rpx;
+  border-bottom: 1rpx dashed #dbdbdb;
+}
+
+.footer{
+  padding-top: 10rpx;
+}
+
+.artimg{
+  border-radius: 6rpx;
+}
+
+.tool {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+  width: auto;
+  padding-left: 15rpx;
+  font-size:medium;
+}
+
+.tool image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.qrcode{
+  margin-top: 50rpx;
+  margin-bottom: 100rpx;
+  padding-top: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #6a6a6a;
+}
+
+.qrcode image{
+  border-radius: 6rpx;
+  margin: 15rpx;
+  width: 300rpx;
+  height: 300rpx;
+}
+
+p{
+  letter-spacing: 10px;
+}

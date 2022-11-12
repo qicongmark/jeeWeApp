@@ -19,10 +19,10 @@
   </view>
 
   <view class="learn-course">
-    <navigator url="/pages/video/video?code={{item.code}}&name={{item.name}}" wx:for="{{courses}}" >
+    <navigator url="/pages/video/video?code={{item.code}}&name={{item.title}}" wx:for="{{courses}}" >
     <view class="course">
       <image mode="heightFix" src="{{item.icon}}"></image>
-      <view>{{item.name}}</view>
+      <view>{{item.title}}</view>
     </view>
     </navigator>
   </view>

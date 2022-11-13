@@ -2,6 +2,8 @@
 
 可以添加内容，也可以实现答题功能
 
+视频教程：https://mp.weixin.qq.com/s/neH0wRKNSvDZkPpzgV1_0g
+
 
 
 ## 1、小程序AppID
@@ -10,7 +12,7 @@
 
 
 
-小程序appid：wx9d36eda4715aeea9
+小程序appid：wx9d36eda4715aeea
 
 
 
